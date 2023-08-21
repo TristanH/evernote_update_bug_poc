@@ -39,7 +39,7 @@ UPDATE_NOTE_XML_TPL = """<div>
             <br />
         </p>
         <p>
-            <span>Interdum et malesuada fames ac ante ipsum primis in faucibus. In viverra eget felis vitae tristique. Quisque id finibus tellus. Nunc volutpat lacus vitae pulvinar elementum. Etiam consectetur felis vitae neque hendrerit, id convallis enim blandit. Suspendisse in ante et augue suscipit tincidunt. Integer convallis lectus in tellus finibus accumsan. Sed fermentum mattis quam, ut mattis lectus pulvinar ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed elementum dapibus quam. Pellentesque libero ante, luctus quis auctor non, euismod euismod augue. Nullam nec condimentum enim. (</span>
+            <span>This will not show if you open the note in between creation and update. (</span>
             <a
                 href="https://www.example.com/h1">
                 <span>View Highlight</span>
