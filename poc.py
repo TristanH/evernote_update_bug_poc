@@ -161,14 +161,14 @@ def main():
 
     created_notes = []
 
-    for i in range(30):
-        title = "Test note {}".format(random.randint(0, 100000))
+    for i in range(40):
+        title = "Test note {}".format(random.randint(0, 10000000))
         note = create_note(note_store, title)
         print("Created note with title and GUID:", note.title, note.guid)
         created_notes.append(note)
 
-    print("Waiting for 100 seconds...")
-    time.sleep(100)
+    print("Waiting for 180 seconds...")
+    time.sleep(180)
 
     print("Now, let's update the notes...")
     for note in created_notes:
@@ -176,7 +176,7 @@ def main():
         note_store = client.get_note_store()
         note = note_store.getNote(note.guid, True, False, False, False)
         note = update_note(note, note_store)
-        print("Updated note", note.guid)
+        print("Updated note", note.id, note.guid)
 
 
 if __name__ == "__main__":
