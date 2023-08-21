@@ -23,57 +23,6 @@ BASE_NOTE_XML_TPL = """<?xml version="1.0" encoding="UTF-8"?>
             <span>
     )</span>
         </p>
-        <p>
-            <br />
-        </p>
-        <p>
-            <span>Cras luctus condimentum ipsum, eu tempor nibh volutpat non. Phasellus dapibus et ante sit amet rutrum. Integer ullamcorper risus ut fringilla hendrerit. Maecenas velit metus, tempus ut venenatis a, bibendum nec nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam non nisi interdum, elementum mi et, venenatis est. Donec auctor risus sit amet tempor molestie. Morbi lectus neque, pellentesque non varius iaculis, dapibus vel diam. Sed id bibendum turpis, nec sodales libero. (</span>
-            <a
-                href="https://www.example.com/h0">
-                <span>View Highlight</span>
-            </a>
-            <span>
-    )</span>
-        </p>
-        <p>
-            <br />
-        </p>
-        <p>
-            <span>Maecenas a feugiat orci, a vulputate nisi. Sed tincidunt imperdiet mattis. Maecenas pulvinar pretium eleifend. In nec consequat nibh. Vestibulum ac dapibus purus. Sed eu ligula non ex consequat bibendum. Morbi consectetur turpis sit amet massa semper fermentum. Nam sed volutpat turpis. Nullam iaculis, ex nec interdum dictum, elit velit euismod ipsum, eget lacinia orci nibh sed sem. Quisque nec fringilla orci. Pellentesque mollis feugiat purus sit amet tempor. Sed id egestas magna. Sed lacinia nunc vitae elementum euismod. Ut non velit elit. Nunc facilisis lectus sit amet ultricies semper. Praesent ornare auctor tellus mattis fringilla. (</span>
-            <a
-                href="https://www.example.com/h0">
-                <span>View Highlight</span>
-            </a>
-            <span>
-    )</span>
-        </p>
-        <p>
-            <br />
-        </p>
-        <p>
-            <span>Sed lacus enim, ultrices et aliquet id, semper eu mi. Etiam sem neque, bibendum et leo quis, tempor efficitur felis. Etiam eu felis nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas facilisis leo sed aliquet lobortis. Nunc nunc urna, euismod sed feugiat vel, aliquam sed leo. Ut id eleifend lectus, vitae auctor quam. Etiam interdum nec purus eu sagittis. Fusce tristique tempus justo, vitae commodo felis condimentum at. Donec ut lectus ut lectus sodales pretium eget in dui. Morbi cursus vulputate risus, et volutpat tellus. (</span>
-            <a
-                href="https://www.example.com/h0">
-                <span>View Highlight</span>
-            </a>
-            <span>
-    )</span>
-        </p>
-        <p>
-            <br />
-        </p>
-        <p>
-            <span>Etiam semper convallis felis imperdiet aliquam. Suspendisse a enim ante. Phasellus ac ipsum vel justo commodo bibendum ac sed nulla. Maecenas lectus eros, gravida vitae facilisis sed, mattis finibus massa. Maecenas pellentesque, leo sed elementum tempus, magna turpis feugiat ante, non mollis dui velit at erat. Nulla a rutrum ligula, et ullamcorper justo. Mauris eget nulla urna. Donec lacinia dolor elit, non malesuada arcu pretium et. Curabitur et ex est. Aliquam ut posuere felis, a facilisis sem. Phasellus est odio, dignissim quis sem ut, laoreet malesuada mauris. Nullam sit amet velit eleifend, tempus arcu in, vulputate metus. Mauris tristique pretium sapien, et interdum arcu pretium sed. Integer at leo sit amet augue dignissim condimentum eu vel nisl. Integer facilisis, purus nec blandit faucibus, odio ante sodales tellus, in luctus quam neque vel magna. Fusce a posuere eros, eu molestie massa. (</span>
-            <a
-                href="https://www.example.com/h0">
-                <span>View Highlight</span>
-            </a>
-            <span>
-    )</span>
-        </p>
-        <p>
-            <br />
-        </p>
 </div>
     {}
 </en-note>
@@ -97,33 +46,6 @@ UPDATE_NOTE_XML_TPL = """<div>
             </a>
             <span>
     )</span>
-        </p>
-        <p>
-            <br />
-        </p>
-        <p>
-            <span>Morbi finibus rhoncus metus a egestas. Morbi a sapien sed ipsum tincidunt tincidunt. Etiam ac nunc ut lacus interdum malesuada. Cras rutrum luctus tellus, ac blandit mauris congue eu. Maecenas tincidunt ultricies orci, nec pharetra orci tempor a. Integer accumsan ante ac mattis pellentesque. Maecenas tincidunt massa non laoreet pharetra. Quisque venenatis non odio non egestas. Maecenas vel magna risus. (</span>
-            <a
-                href="https://www.example.com/h1">
-                <span>View Highlight</span>
-            </a>
-            <span>
-    )</span>
-        </p>
-        <p>
-            <br />
-        </p>
-        <p>
-            <span>Donec suscipit leo eros, quis euismod tellus mattis at. In hac habitasse platea dictumst. Sed volutpat justo ut eros ornare ultricies. Praesent ut est tincidunt, tristique nunc non, pretium quam. Sed blandit ex eget neque fringilla, nec posuere metus eleifend. Aenean convallis volutpat aliquam. Aliquam erat volutpat. (</span>
-            <a
-                href="https://www.example.com/h1">
-                <span>View Highlight</span>
-            </a>
-            <span>
-    )</span>
-        </p>
-        <p>
-            <br />
         </p>
     </div>
 """
@@ -161,14 +83,14 @@ def main():
 
     created_notes = []
 
-    for i in range(40):
+    for i in range(5):
         title = "Test note {}".format(random.randint(0, 10000000))
         note = create_note(note_store, title)
         print("Created note with title and GUID:", note.title, note.guid)
         created_notes.append(note)
 
-    print("Waiting for 200 seconds (this wait seems to increase incidence of the bug)...")
-    time.sleep(200)
+    print("Waiting for 120 seconds. Please open one or more of the above notes in Evernote web now, then let them be updated...")
+    time.sleep(120)
 
     print("Now, let's update the notes...")
     for note in created_notes:
