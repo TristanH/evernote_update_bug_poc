@@ -162,7 +162,7 @@ def main():
         for i in range(5):
             title = "Test note {}".format(i)
             note = create_note(note_store, title)
-            print(f"Created note ({title}) with GUID: {note.guid}")
+            print("Created note with title and GUID:", note.title, note.guid)
             print("Now, let's update the note ...")
             print("Waiting for 30 seconds...")
             time.sleep(30)
