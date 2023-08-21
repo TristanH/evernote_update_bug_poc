@@ -1,5 +1,7 @@
 # evernote_update_bug_poc
 
+## Note: you must be running on python 3.5.10 (or lower) for this POC to work, as there is a bug with the evernote3 python library that does not allow higher versions.
+
 To run:
 
 ```
