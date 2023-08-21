@@ -3,6 +3,7 @@ import time
 import evernote.edam.type.ttypes as Types
 from evernote.api.client import EvernoteClient
 import datetime
+import random
 
 BASE_NOTE_XML_TPL = """<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
@@ -82,7 +83,7 @@ UPDATE_NOTE_XML_TPL = """<div>
         <hr />
         <p>
             <strong>
-                <span>Updated: ABC ??, ????</span>
+                <span>Updated: ABC ??, ????.</span>
             </strong>
         </p>
         <p>
@@ -158,22 +159,24 @@ def main():
     client = get_client(auth_token)
     note_store = client.get_note_store()
 
-    try:
-        for i in range(5):
-            title = "Test note {}".format(i)
-            note = create_note(note_store, title)
-            print("Created note with title and GUID:", note.title, note.guid)
-            print("Now, let's update the note ...")
-            print("Waiting for 30 seconds...")
-            time.sleep(30)
-            client = get_client(auth_token)
-            note_store = client.get_note_store()
-            note = note_store.getNote(note.guid, True, False, False, False)
-            note = update_note(note, note_store)
-            print("Updated note")
-    except Exception as e:
-        print(e)
-        return
+    created_notes = []
+
+    for i in range(30):
+        title = "Test note {}".format(random.randint(0, 100000))
+        note = create_note(note_store, title)
+        print("Created note with title and GUID:", note.title, note.guid)
+        created_notes.append(note)
+
+    print("Waiting for 100 seconds...")
+    time.sleep(100)
+
+    print("Now, let's update the notes...")
+    for note in created_notes:
+        client = get_client(auth_token)
+        note_store = client.get_note_store()
+        note = note_store.getNote(note.guid, True, False, False, False)
+        note = update_note(note, note_store)
+        print("Updated note", note.guid)
 
 
 if __name__ == "__main__":
